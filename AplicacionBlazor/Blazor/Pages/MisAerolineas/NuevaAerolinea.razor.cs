@@ -13,7 +13,8 @@ namespace Blazor.Pages.MisAerolineas
         [Inject] private IAerolineaServicio aerolineaServicio { get; set; }
         
         [Inject] private SweetAlertService Swal { get; set; }
-        [Inject] NavigationManager _navigationManager { get; set; }     
+        [Inject] NavigationManager _navigationManager { get; set; }
+       
         [Inject] private IUsuarioServicio _usuarioServicio { get; set; }
 
 
@@ -21,8 +22,8 @@ namespace Blazor.Pages.MisAerolineas
 
         protected override async Task OnInitializedAsync()
         {
-          
-            //aerolinea.Fecha = DateTime.Now;
+            
+            aero.Fecha = DateTime.Now;
         }
 
 
@@ -39,19 +40,20 @@ namespace Blazor.Pages.MisAerolineas
 
             if (!string.IsNullOrEmpty(aerolineaExistente.Codigo))
             {
-                await Swal.FireAsync("Advertencia", "Ya existe la aerolinea con este codigo", SweetAlertIcon.Warning);
+                await Swal.FireAsync("Advertencia", "Ya existe un vuelo con este código", SweetAlertIcon.Warning);
                 return;
             }
 
             bool inserto = await aerolineaServicio.Nuevo(aero);
             if (inserto)
             {
-                await Swal.FireAsync("Advertencia", "Aerolinea guardada con exito ", SweetAlertIcon.Success);
+                await Swal.FireAsync("Felicidades", "El vuelo fue guardado con éxito ", SweetAlertIcon.Success);
             }
             else
             {
-                await Swal.FireAsync("Advertencia", "No se puedo guardar la aerolinea ", SweetAlertIcon.Error);
+                await Swal.FireAsync("Advertencia", "No se puedo guardar el vuelo ", SweetAlertIcon.Error);
             }
+            _navigationManager.NavigateTo("/Aerolineas");
         }
 
         protected async Task Cancelar()

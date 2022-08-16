@@ -31,7 +31,7 @@ namespace Blazor.Pages.MisUsuarios
 
             if (inserto)
             {
-                await Swal.FireAsync("Felicidades", "Usuario guardado con exito", SweetAlertIcon.Success);
+                await Swal.FireAsync("Felicidades", "Usuario guardado con éxito", SweetAlertIcon.Success);
             }
             else
             {

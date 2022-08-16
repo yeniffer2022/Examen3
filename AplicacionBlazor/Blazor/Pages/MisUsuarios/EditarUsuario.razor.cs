@@ -39,7 +39,7 @@ namespace Blazor.Pages.MisUsuarios
 
             if (edito)
             {
-                await Swal.FireAsync("Felicidades", "Usuario guardado con exito", SweetAlertIcon.Success);
+                await Swal.FireAsync("Felicidades", "Usuario guardado con éxito", SweetAlertIcon.Success);
             }
             else
             {
@@ -71,7 +71,7 @@ namespace Blazor.Pages.MisUsuarios
                 elimino = await _usuarioServicio.Eliminar(user);
                 if (elimino)
                 {
-                    await Swal.FireAsync("Felicidades", "Usuario eliminado con exito", SweetAlertIcon.Success);
+                    await Swal.FireAsync("Felicidades", "Usuario eliminado con éxito", SweetAlertIcon.Success);
                     _navigationManager.NavigateTo("/Usuarios");
                 }
                 else

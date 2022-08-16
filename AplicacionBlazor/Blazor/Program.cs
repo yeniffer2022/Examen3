@@ -20,8 +20,8 @@ builder.Services.AddControllers();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
 builder.Services.AddScoped<IAerolineaServicio, AerolineaServicio>();
-//builder.Services.AddHttpContextAccessor();
-//builder.Services.AddResponseCompression();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddResponseCompression();
 builder.Services.AddSweetAlert2();
 var app = builder.Build();
 

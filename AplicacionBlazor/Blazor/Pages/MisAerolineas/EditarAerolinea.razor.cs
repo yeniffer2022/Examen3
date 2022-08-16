@@ -35,11 +35,11 @@ namespace Blazor.Pages.MisAerolineas
 
             if (edito)
             {
-                await Swal.FireAsync("Felicidades", "Aerolinea guardada con exito", SweetAlertIcon.Success);
+                await Swal.FireAsync("Felicidades", "El vuelo fue guardado con éxito", SweetAlertIcon.Success);
             }
             else
             {
-                await Swal.FireAsync("Error", "No se pudo guardar la aerolinea", SweetAlertIcon.Error);
+                await Swal.FireAsync("Error", "No se pudo guardar el vuelo", SweetAlertIcon.Error);
             }
             _navigationManager.NavigateTo("/Aerolineas");
         }
@@ -56,7 +56,7 @@ namespace Blazor.Pages.MisAerolineas
 
             SweetAlertResult result = await Swal.FireAsync(new SweetAlertOptions
             {
-                Title = "¿Seguro que desea eliminar la aerolinea?",
+                Title = "¿Seguro que desea eliminar el vuelo?",
                 Icon = SweetAlertIcon.Question,
                 ShowCancelButton = true,
                 ConfirmButtonText = "Aceptar",
@@ -68,12 +68,12 @@ namespace Blazor.Pages.MisAerolineas
                 elimino = await _aerolineaServicio.Eliminar(aero);
                 if (elimino)
                 {
-                    await Swal.FireAsync("Felicidades", "Aerolinea eliminada con exito", SweetAlertIcon.Success);
+                    await Swal.FireAsync("Felicidades", "El vuelo fue eliminado con éxito", SweetAlertIcon.Success);
                     _navigationManager.NavigateTo("/Aerolineas");
                 }
                 else
                 {
-                    await Swal.FireAsync("Error", "No se pudo eliminar la aerolinea", SweetAlertIcon.Error);
+                    await Swal.FireAsync("Error", "No se pudo eliminar el vuelo", SweetAlertIcon.Error);
                 }
             }
         }
