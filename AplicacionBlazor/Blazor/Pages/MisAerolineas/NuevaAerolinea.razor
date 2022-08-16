@@ -1,0 +1,77 @@
+﻿@page "/Aerolineas/Nuevo"
+
+<AuthorizeView Roles= "Administrador">
+      <Authorized Context="AuthenticationState">
+      <h3>Nueva Aerolinea</h3>
+          <br />
+          <EditForm Model="@aero">
+              <DataAnnotationsValidator />
+              <div class="form-group row">
+                    <label for="Codigo" class="col-sm-2 col-form-label">
+                        Codigo
+                    </label>
+                    <div class="col-sm-10">
+                        <InputText id="Codigo" class="form-control" @bind-Value="aero.Codigo"/>
+                        <ValidationMessage For="@(() => aero.Codigo)"/>
+                    </div>
+              </div>
+
+              <div class="form-group row">
+                    <label for="Origen" class="col-sm-2 col-form-label">
+                        Origen
+                    </label>
+                    <div class="col-sm-10">
+                        <InputText id="Origen" class="form-control" @bind-Value="aero.Origen"/>                      
+                    </div>
+              </div>
+
+              <div class="form-group row">
+                    <label for="Destino" class="col-sm-2 col-form-label">
+                        Destino
+                    </label>
+                    <div class="col-sm-10">
+                        <InputText id="Destino" class="form-control" @bind-Value="aero.Destino"/>                      
+                    </div>
+              </div>
+
+              <div class="form-group row">
+                    <label for="Avion" class="col-sm-2 col-form-label">
+                        Avion
+                    </label>
+                    <div class="col-sm-10">
+                        <InputText id="Avion" class="form-control" @bind-Value="aero.Avion"/>                      
+                    </div>
+              </div>
+
+              <div class="form-group row">
+                    <label for="Cantidad" class="col-sm-2 col-form-label">
+                        Cantidad
+                    </label>
+                    <div class="col-sm-10">
+                        <InputNumber id="Cantidad" class="form-control" @bind-Value="aero.Cantidad"/>                      
+                    </div>
+              </div>
+
+              <div class="form-group row">
+                    <label for="Piloto" class="col-sm-2 col-form-label">
+                        Piloto
+                    </label>
+                    <div class="col-sm-10">
+                        <InputText id="Piloto" class="form-control" @bind-Value="aero.Piloto"/>                      
+                    </div>
+              </div>
+
+              <div class="form-group row">
+                  <p>
+                      <input type="submit" class="btn btn-primary" value="Guardar" @onclick="Guardar"/>
+                      <input type="submit" class="btn btn-danger" value="Cancelar" @onclick="Cancelar"/>
+                  </p>
+
+
+              </div>
+
+          </EditForm>
+      
+      
+      </Authorized>
+</AuthorizeView>

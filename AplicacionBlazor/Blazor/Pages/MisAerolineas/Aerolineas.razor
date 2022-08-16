@@ -1,0 +1,52 @@
+﻿@page "/Aerolineas"
+
+<AuthorizeView Roles= "Administrador">
+
+    <Authorized Context="AuthenticationState">
+        <h3>Lista de Aerolineas</h3>
+        <div class="for-group-row">
+            <div class="col-sm-10">
+                <a href="/Aerolineas/Nuevo" class="btn btn-primary m-1">Nueva Aerolinea</a>
+            </div>
+
+        </div>
+
+        @if (listaAerolinea == null)
+        {
+            <p>No existen aerolineas en el sistema</p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Avion</th>
+                        <th>Cantidad</th>
+                        <th>Piloto</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var aerolinea in listaAerolinea)
+                    {
+                        <tr>
+                            <td>@aerolinea.Codigo</td>
+                            <td>@aerolinea.Origen</td>
+                            <td>@aerolinea.Destino</td>
+                            <td>@aerolinea.Avion</td>
+                            <td>@aerolinea.Cantidad</td>
+                            <td>@aerolinea.Piloto</td>                           
+                           <th>
+                               <a class="btn btn-success" href="@($"/Aerolineas/Editar/{aerolinea.Codigo}")">Editar</a>        
+                           </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </Authorized>
+
+</AuthorizeView>
